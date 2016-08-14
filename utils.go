@@ -15,6 +15,7 @@ func htmlDocument(url string) io.Reader {
 	req.Header.Set("DNT", "1")
 	req.Header.Set("Upgrade-Insecure-Requests", "1")
 	req.Header.Set("Accept-Language", "en-US,en;q=0.8")
+	req.Header.Set("Accept-Encoding", "gzip, deflate, sdch")
 	req.Header.Set("Accept", "text/html,application/xhtml+xml,*/*;q=0.8")
 	req.Header.Set("User-Agent", "Mozilla/5.0 (KHTML, like Gecko) Safari/537.36")
 	req.Header.Set("Cache-Control", "max-age=0")
@@ -39,18 +40,32 @@ func htmlDocument(url string) io.Reader {
 }
 
 func tableCells(stream io.Reader) []string {
-	var line string
-	var lines []string
-
 	scanner := bufio.NewScanner(stream)
+
+	var line string
+	var cells []string
+	var collect bool = false
+	var row string
 
 	for scanner.Scan() {
 		line = scanner.Text()
 
-		if len(line) > 50 {
-			lines = append(lines, line)
+		if strings.Contains(line, "<tr class=\"altshade\"") {
+			collect = true
+			continue
+		}
+
+		if collect {
+			if strings.Contains(line, "</tr>") {
+				cells = append(cells, row)
+				collect = false
+				row = ""
+				continue
+			}
+
+			row += strings.TrimSpace(line)
 		}
 	}
 
-	return lines
+	return cells
 }
