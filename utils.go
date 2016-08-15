@@ -8,6 +8,28 @@ import (
 	"net/http"
 )
 
+func analyze(text string) Proxy {
+	var proxy Proxy
+	text = strings.Replace(text, "</td><", "</td>\n<", -1)
+	var lines []string = strings.Split(text, "\n")
+
+	if len(lines) == 8 {
+		proxy = cellData(lines)
+	}
+
+	return proxy
+}
+
+func cellData(lines []string) Proxy {
+	var proxy Proxy
+
+	if len(lines) >= 8 {
+		log.Println("Lines are correct")
+	}
+
+	return proxy
+}
+
 func htmlDocument(url string) io.Reader {
 	client := &http.Client{}
 	req, err := http.NewRequest("GET", url, nil)
