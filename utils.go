@@ -24,7 +24,7 @@ func cellData(lines []string) Proxy {
 	var proxy Proxy
 
 	if len(lines) >= 8 {
-		log.Println("Lines are correct")
+		proxy.ParseLastUpdate(lines[0])
 	}
 
 	return proxy
