@@ -2,6 +2,7 @@ package main
 
 import (
 	"regexp"
+	"strings"
 )
 
 type Proxy struct {
@@ -22,4 +23,22 @@ func (p *Proxy) ParseLastUpdate(line string) {
 	if len(parts) == 2 {
 		p.LastUpdate = parts[1]
 	}
+}
+
+func (p *Proxy) InvisibleTags(line string) []string {
+	var invisible []string
+	var styleStart int = strings.Index(line, "<style>")
+	var styleEnd int = strings.Index(line, "</style>")
+	var section string = line[(styleStart + 7):styleEnd]
+
+	re := regexp.MustCompile(`\.([0-9a-zA-Z]{4})\{display:(inline|none)\}`)
+	parts := re.FindAllStringSubmatch(section, -1)
+
+	for _, data := range parts {
+		if data[2] == "none" {
+			invisible = append(invisible, data[1])
+		}
+	}
+
+	return invisible
 }
