@@ -16,12 +16,38 @@ type Proxy struct {
 	Anonimity  string
 }
 
-func (p *Proxy) ParseLastUpdate(line string) {
-	re := regexp.MustCompile(`<span class="updatets[^>]+>(\S+)`)
-	parts := re.FindStringSubmatch(line)
+func (p *Proxy) ParseAddress(line string) {
+	var end int = strings.Index(line, "</style>")
+	var content string = line[(end + 8):len(line)]
 
-	if len(parts) == 2 {
-		p.LastUpdate = parts[1]
+	// Remove unnecessary empty HTML tags.
+	content = strings.Replace(content, "<span></span>", "", -1)
+
+	// Remove explicit invisible HTML tags with inline CSS style.
+	re := regexp.MustCompile(`<(span|div) style="display:none">[^<]+<\/(span|div)>`)
+	content = re.ReplaceAllString(content, "")
+
+	// Remove implicit invisible HTML tags with CSS classes.
+	var invisible []string = p.InvisibleTags(line)
+	for _, cssClass := range invisible {
+		re = regexp.MustCompile(`<(span|div) class="` + cssClass + `">[^<]+<\/(span|div)>`)
+		content = re.ReplaceAllString(content, "")
+	}
+
+	// Remove the display inline style from the remaining HTML code.
+	re = regexp.MustCompile(`<(span|div) style="display: inline">([^<]+)</(span|div)>`)
+	content = re.ReplaceAllString(content, "$2")
+
+	// Remove the unnecessary HTML code from visible CSS classes.
+	re = regexp.MustCompile(`<(span|div) class="[^"]+">([^<]+)</(span|div)>`)
+	content = re.ReplaceAllString(content, "$2")
+
+	// Clean final string.
+	re = regexp.MustCompile(`([0-9\.]{7,15}).*`)
+	content = re.ReplaceAllString(content, "$1")
+
+	if content != "" {
+		p.Address = content
 	}
 }
 
@@ -41,4 +67,13 @@ func (p *Proxy) InvisibleTags(line string) []string {
 	}
 
 	return invisible
+}
+
+func (p *Proxy) ParseLastUpdate(line string) {
+	re := regexp.MustCompile(`<span class="updatets[^>]+>(\S+)`)
+	parts := re.FindStringSubmatch(line)
+
+	if len(parts) == 2 {
+		p.LastUpdate = parts[1]
+	}
 }

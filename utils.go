@@ -25,6 +25,7 @@ func cellData(lines []string) Proxy {
 
 	if len(lines) >= 8 {
 		proxy.ParseLastUpdate(lines[0])
+		proxy.ParseAddress(lines[1])
 	}
 
 	return proxy
