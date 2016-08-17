@@ -86,3 +86,12 @@ func (p *Proxy) ParsePort(line string) {
 		p.Port = parts[1]
 	}
 }
+
+func (p *Proxy) ParseCountry(line string) {
+	re := regexp.MustCompile(`\/>(\S+)\s+<\/span><\/td>`)
+	parts := re.FindStringSubmatch(line)
+
+	if len(parts) == 2 {
+		p.Country = parts[1]
+	}
+}
