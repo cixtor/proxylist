@@ -77,3 +77,12 @@ func (p *Proxy) ParseLastUpdate(line string) {
 		p.LastUpdate = parts[1]
 	}
 }
+
+func (p *Proxy) ParsePort(line string) {
+	re := regexp.MustCompile(`<td>(\S+)\s+</td>`)
+	parts := re.FindStringSubmatch(line)
+
+	if len(parts) == 2 {
+		p.Port = parts[1]
+	}
+}
