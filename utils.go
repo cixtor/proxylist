@@ -28,6 +28,7 @@ func cellData(lines []string) Proxy {
 		proxy.ParseAddress(lines[1])
 		proxy.ParsePort(lines[2])
 		proxy.ParseCountry(lines[3])
+		proxy.ParseSpeed(lines[4])
 	}
 
 	return proxy
