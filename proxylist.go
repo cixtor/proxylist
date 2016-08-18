@@ -104,3 +104,12 @@ func (p *Proxy) ParseSpeed(line string) {
 		p.Speed = parts[1]
 	}
 }
+
+func (p *Proxy) ParseConnection(line string) {
+	re := regexp.MustCompile(`style="width: ([0-9]+%);`)
+	parts := re.FindStringSubmatch(line)
+
+	if len(parts) == 2 {
+		p.Connection = parts[1]
+	}
+}
