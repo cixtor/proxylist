@@ -113,3 +113,12 @@ func (p *Proxy) ParseConnection(line string) {
 		p.Connection = parts[1]
 	}
 }
+
+func (p *Proxy) ParseProtocol(line string) {
+	re := regexp.MustCompile(`<td>(\S+)\s+</td>`)
+	parts := re.FindStringSubmatch(line)
+
+	if len(parts) == 2 {
+		p.Protocol = parts[1]
+	}
+}
