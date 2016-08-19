@@ -31,6 +31,7 @@ func cellData(lines []string) Proxy {
 		proxy.ParseSpeed(lines[4])
 		proxy.ParseConnection(lines[5])
 		proxy.ParseProtocol(lines[6])
+		proxy.ParseAnonimity(lines[7])
 	}
 
 	return proxy

@@ -122,3 +122,12 @@ func (p *Proxy) ParseProtocol(line string) {
 		p.Protocol = parts[1]
 	}
 }
+
+func (p *Proxy) ParseAnonimity(line string) {
+	re := regexp.MustCompile(`<td nowrap>([^>]+)</td>`)
+	parts := re.FindStringSubmatch(line)
+
+	if len(parts) == 2 {
+		p.Anonimity = strings.TrimSpace(parts[1])
+	}
+}
