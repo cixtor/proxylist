@@ -6,6 +6,7 @@ import (
 	"io"
 	"log"
 	"net/http"
+	"strings"
 )
 
 func analyze(text string) Proxy {
@@ -97,4 +98,14 @@ func tableCells(stream io.Reader) []string {
 	}
 
 	return cells
+}
+
+func padright(text string, length int) string {
+	var total int = len(text)
+
+	if total < length {
+		text += strings.Repeat("\x20", length-total)
+	}
+
+	return text
 }
