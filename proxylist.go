@@ -88,11 +88,11 @@ func (p *Proxy) ParsePort(line string) {
 }
 
 func (p *Proxy) ParseCountry(line string) {
-	re := regexp.MustCompile(`\/>(\S+)\s+<\/span><\/td>`)
+	re := regexp.MustCompile(`\/>([^<]+)<\/span><\/td>`)
 	parts := re.FindStringSubmatch(line)
 
 	if len(parts) == 2 {
-		p.Country = parts[1]
+		p.Country = strings.TrimSpace(parts[1])
 	}
 }
 

@@ -79,7 +79,7 @@ func tableCells(stream io.Reader) []string {
 	for scanner.Scan() {
 		line = scanner.Text()
 
-		if strings.Contains(line, "<tr class=\"altshade\"") {
+		if strings.Contains(line, "<tr class=") {
 			collect = true
 			continue
 		}
