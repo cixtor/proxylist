@@ -54,7 +54,7 @@ func FileContent(test int) []byte {
 	return data
 }
 
-func TestAnalyzeOne(t *testing.T) {
+func TestAnalyzeProxy1(t *testing.T) {
 	ReportFailure(t, 1, Proxy{
 		LastUpdate: "56secs",
 		Address:    "218.191.247.51",
@@ -62,6 +62,19 @@ func TestAnalyzeOne(t *testing.T) {
 		Country:    "Hong Kong",
 		Speed:      "92%",
 		Connection: "95%",
+		Protocol:   "HTTP",
+		Anonimity:  "High +KA",
+	})
+}
+
+func TestAnalyzeProxy2(t *testing.T) {
+	ReportFailure(t, 2, Proxy{
+		LastUpdate: "56secs",
+		Address:    "201.241.88.63",
+		Port:       "80",
+		Country:    "Chile",
+		Speed:      "83%",
+		Connection: "94%",
 		Protocol:   "HTTP",
 		Anonimity:  "High +KA",
 	})
