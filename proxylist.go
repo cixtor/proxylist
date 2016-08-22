@@ -35,11 +35,11 @@ func (p *Proxy) ParseAddress(line string) {
 	}
 
 	// Remove the display inline style from the remaining HTML code.
-	re = regexp.MustCompile(`<(span|div) style="display: inline">([^<]+)</(span|div)>`)
+	re = regexp.MustCompile(`<(span|div) style="display: inline">([^<]+)<\/(span|div)>`)
 	content = re.ReplaceAllString(content, "$2")
 
 	// Remove the unnecessary HTML code from visible CSS classes.
-	re = regexp.MustCompile(`<(span|div) class="[^"]+">([^<]+)</(span|div)>`)
+	re = regexp.MustCompile(`<(span|div) class="[^"]+">([^<]+)<\/(span|div)>`)
 	content = re.ReplaceAllString(content, "$2")
 
 	// Clean final string.
@@ -57,7 +57,7 @@ func (p *Proxy) InvisibleTags(line string) []string {
 	var styleEnd int = strings.Index(line, "</style>")
 	var section string = line[(styleStart + 7):styleEnd]
 
-	re := regexp.MustCompile(`\.([0-9a-zA-Z]{4})\{display:(inline|none)\}`)
+	re := regexp.MustCompile(`\.([0-9a-zA-Z_]{4})\{display:(inline|none)\}`)
 	parts := re.FindAllStringSubmatch(section, -1)
 
 	for _, data := range parts {
@@ -79,7 +79,7 @@ func (p *Proxy) ParseLastUpdate(line string) {
 }
 
 func (p *Proxy) ParsePort(line string) {
-	re := regexp.MustCompile(`<td>(\S+)\s+</td>`)
+	re := regexp.MustCompile(`<td>(\S+)\s+<\/td>`)
 	parts := re.FindStringSubmatch(line)
 
 	if len(parts) == 2 {
@@ -115,7 +115,7 @@ func (p *Proxy) ParseConnection(line string) {
 }
 
 func (p *Proxy) ParseProtocol(line string) {
-	re := regexp.MustCompile(`<td>(\S+)\s+</td>`)
+	re := regexp.MustCompile(`<td>(\S+)\s+<\/td>`)
 	parts := re.FindStringSubmatch(line)
 
 	if len(parts) == 2 {
@@ -124,7 +124,7 @@ func (p *Proxy) ParseProtocol(line string) {
 }
 
 func (p *Proxy) ParseAnonimity(line string) {
-	re := regexp.MustCompile(`<td nowrap>([^>]+)</td>`)
+	re := regexp.MustCompile(`<td nowrap>([^>]+)<\/td>`)
 	parts := re.FindStringSubmatch(line)
 
 	if len(parts) == 2 {
