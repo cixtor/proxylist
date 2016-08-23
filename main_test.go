@@ -92,3 +92,16 @@ func TestAnalyzeProxy3(t *testing.T) {
 		Anonimity:  "High +KA",
 	})
 }
+
+func TestAnalyzeProxy4(t *testing.T) {
+	ReportFailure(t, 4, Proxy{
+		LastUpdate: "18mins",
+		Address:    "77.251.233.243",
+		Port:       "80",
+		Country:    "Netherlands",
+		Speed:      "100%",
+		Connection: "100%",
+		Protocol:   "HTTP",
+		Anonimity:  "High +KA",
+	})
+}
