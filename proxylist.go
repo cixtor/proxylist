@@ -70,11 +70,11 @@ func (p *Proxy) InvisibleTags(line string) []string {
 }
 
 func (p *Proxy) ParseLastUpdate(line string) {
-	re := regexp.MustCompile(`<span class="updatets[^>]+>(\S+)`)
+	re := regexp.MustCompile(`<span class="updatets[^>]+>([^<]+)<\/span>`)
 	parts := re.FindStringSubmatch(line)
 
 	if len(parts) == 2 {
-		p.LastUpdate = parts[1]
+		p.LastUpdate = strings.TrimSpace(parts[1])
 	}
 }
 
