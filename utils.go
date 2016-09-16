@@ -99,6 +99,16 @@ func tableCells(stream io.Reader) []string {
 	return cells
 }
 
+func padleft(text string, length int) string {
+	var total int = len(text)
+
+	if total < length {
+		text = strings.Repeat("\x20", length-total) + text
+	}
+
+	return text
+}
+
 func padright(text string, length int) string {
 	var total int = len(text)
 
