@@ -99,6 +99,16 @@ func tableCells(stream io.Reader) []string {
 	return cells
 }
 
+func fullhost(proxy Proxy) string {
+	proto := strings.ToLower(proxy.Protocol)
+
+	if proxy.Protocol == "socks4/5" {
+		proto = "socks"
+	}
+
+	return proto + "://" + proxy.Address + ":" + proxy.Port
+}
+
 func padleft(text string, length int) string {
 	var total int = len(text)
 

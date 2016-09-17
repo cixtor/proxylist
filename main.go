@@ -10,7 +10,7 @@ func main() {
 	stream := htmlDocument(service)
 	lines := tableCells(stream)
 
-	fmt.Println("## | Alive     | Speed | Conn | Proto    | Anonimity | Address + Port        | Country")
+	fmt.Println("## |     Alive | Speed | Conn | Anonimity | Protocol + Address + Port     | Country")
 	fmt.Println("--------------------------------------------------------------------------------------")
 
 	for _, line := range lines {
@@ -18,14 +18,13 @@ func main() {
 		proxy := analyze(line)
 
 		if proxy.Address != "" {
-			fmt.Printf("%02d | %s | %s | %s | %s | %s | %s | %s\n",
+			fmt.Printf("%02d | %s | %s | %s | %s | %s | %s\n",
 				count,
 				padleft(proxy.LastUpdate, 9),
 				padright(proxy.Speed, 5),
 				padright(proxy.Connection, 4),
-				padright(proxy.Protocol, 8),
 				padright(proxy.Anonimity, 9),
-				padright(proxy.Address+":"+proxy.Port, 21),
+				padright(fullhost(proxy), 29),
 				proxy.Country,
 			)
 		}
