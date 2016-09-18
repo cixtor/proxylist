@@ -1,6 +1,7 @@
 package main
 
 import (
+	"encoding/csv"
 	"encoding/json"
 	"fmt"
 	"os"
@@ -37,4 +38,40 @@ func printAsJSON(lines []string) {
 	}
 
 	json.NewEncoder(os.Stdout).Encode(entries)
+}
+
+func printAsCSV(lines []string) {
+	var proxy Proxy
+	var entry []string
+
+	writer := csv.NewWriter(os.Stdout)
+
+	writer.Write([]string{
+		"LastUpdate",
+		"Address",
+		"Port",
+		"Country",
+		"Speed",
+		"Connection",
+		"Protocol",
+		"Anonimity",
+	})
+
+	for _, line := range lines {
+		proxy = analyze(line)
+		entry = []string{
+			proxy.LastUpdate,
+			proxy.Address,
+			proxy.Port,
+			proxy.Country,
+			proxy.Speed,
+			proxy.Connection,
+			proxy.Protocol,
+			proxy.Anonimity,
+		}
+
+		writer.Write(entry)
+	}
+
+	writer.Flush()
 }
