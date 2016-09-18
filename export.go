@@ -1,7 +1,9 @@
 package main
 
 import (
+	"encoding/json"
 	"fmt"
+	"os"
 )
 
 func printAsTable(lines []string) {
@@ -24,4 +26,15 @@ func printAsTable(lines []string) {
 			proxy.Country,
 		)
 	}
+}
+
+func printAsJSON(lines []string) {
+	var entries []Proxy
+
+	for _, line := range lines {
+		proxy := analyze(line)
+		entries = append(entries, proxy)
+	}
+
+	json.NewEncoder(os.Stdout).Encode(entries)
 }
