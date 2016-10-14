@@ -38,6 +38,16 @@ func cellData(lines []string) Proxy {
 	return proxy
 }
 
+func analyzeLines(lines []string) []Proxy {
+	var entries []Proxy
+
+	for _, line := range lines {
+		entries = append(entries, analyze(line))
+	}
+
+	return entries
+}
+
 func htmlDocument(url string) io.Reader {
 	client := &http.Client{}
 	req, err := http.NewRequest("GET", url, nil)

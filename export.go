@@ -7,16 +7,14 @@ import (
 	"os"
 )
 
-func printAsTable(lines []string) {
+func printAsTable(entries []Proxy) {
 	var count int
 
 	fmt.Println("## | Alive      | Speed | Conn | Anonimity | Protocol + Address + Port     | Country")
 	fmt.Println("--------------------------------------------------------------------------------------")
 
-	for _, line := range lines {
+	for _, proxy := range entries {
 		count++
-		proxy := analyze(line)
-
 		fmt.Printf("%02d | %s | %s | %s | %s | %s | %s\n",
 			count,
 			padright(proxy.LastUpdate, 10),
@@ -29,19 +27,11 @@ func printAsTable(lines []string) {
 	}
 }
 
-func printAsJSON(lines []string) {
-	var entries []Proxy
-
-	for _, line := range lines {
-		proxy := analyze(line)
-		entries = append(entries, proxy)
-	}
-
+func printAsJSON(entries []Proxy) {
 	json.NewEncoder(os.Stdout).Encode(entries)
 }
 
-func printAsCSV(lines []string) {
-	var proxy Proxy
+func printAsCSV(entries []Proxy) {
 	var entry []string
 
 	writer := csv.NewWriter(os.Stdout)
@@ -57,8 +47,7 @@ func printAsCSV(lines []string) {
 		"Anonimity",
 	})
 
-	for _, line := range lines {
-		proxy = analyze(line)
+	for _, proxy := range entries {
 		entry = []string{
 			proxy.LastUpdate,
 			proxy.Address,

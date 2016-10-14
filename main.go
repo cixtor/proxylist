@@ -36,19 +36,20 @@ func main() {
 
 	stream := htmlDocument(service)
 	lines := tableCells(stream)
+	entries := analyzeLines(lines)
 
 	if *exportCSV {
-		printAsCSV(lines)
+		printAsCSV(entries)
 		return
 	}
 
 	if *exportJSON {
-		printAsJSON(lines)
+		printAsJSON(entries)
 		return
 	}
 
 	if *exportTable {
-		printAsTable(lines)
+		printAsTable(entries)
 		return
 	}
 }
