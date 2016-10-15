@@ -38,12 +38,14 @@ func cellData(lines []string) Proxy {
 	return proxy
 }
 
-func analyzeLines(lines []string) []Proxy {
+func analyzeLines(lines []string, sorting string) []Proxy {
 	var entries []Proxy
 
 	for _, line := range lines {
 		entries = append(entries, analyze(line))
 	}
+
+	sortByLastUpdate(entries)
 
 	return entries
 }

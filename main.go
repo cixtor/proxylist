@@ -10,6 +10,7 @@ const service = "http://proxylist.hidemyass.com/"
 var exportTable = flag.Bool("table", true, "Print proxy servers in an ASCII table")
 var exportJSON = flag.Bool("json", false, "Print JSON encoded proxy server list")
 var exportCSV = flag.Bool("csv", false, "Print CSV encoded proxy server list")
+var sorting = flag.String("sort", "LastUpdate", "Sort the output by certain criteria")
 
 func main() {
 	flag.Usage = func() {
@@ -36,7 +37,7 @@ func main() {
 
 	stream := htmlDocument(service)
 	lines := tableCells(stream)
-	entries := analyzeLines(lines)
+	entries := analyzeLines(lines, *sorting)
 
 	if *exportCSV {
 		printAsCSV(entries)
