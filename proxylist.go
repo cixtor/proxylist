@@ -6,6 +6,8 @@ import (
 )
 
 type Proxy struct {
+	Unique     int
+	Filter     int
 	LastUpdate string
 	Address    string
 	Port       string
