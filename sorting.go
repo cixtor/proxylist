@@ -44,5 +44,11 @@ func sortableData(proxy Proxy, sorting string) int {
 		return num * -1
 	}
 
+	if sorting == "connection" {
+		Connection := proxy.Connection[0 : len(proxy.Connection)-1]
+		num, _ := strconv.Atoi(Connection)
+		return num * -1
+	}
+
 	return proxy.Unique
 }
