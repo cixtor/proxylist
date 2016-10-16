@@ -1,6 +1,9 @@
 package main
 
-import "sort"
+import (
+	"sort"
+	"strconv"
+)
 
 type ProxyList []Proxy
 
@@ -35,5 +38,11 @@ func sortLines(lines []string, sorting string) ProxyList {
 }
 
 func sortableData(proxy Proxy, sorting string) int {
+	if sorting == "speed" {
+		speed := proxy.Speed[0 : len(proxy.Speed)-1]
+		num, _ := strconv.Atoi(speed)
+		return num * -1
+	}
+
 	return proxy.Unique
 }
