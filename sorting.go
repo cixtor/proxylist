@@ -39,16 +39,42 @@ func sortLines(lines []string, sorting string) ProxyList {
 
 func sortableData(proxy Proxy, sorting string) int {
 	if sorting == "speed" {
-		speed := proxy.Speed[0 : len(proxy.Speed)-1]
-		num, _ := strconv.Atoi(speed)
-		return num * -1
+		return sortableDataBySpeed(proxy)
 	}
 
 	if sorting == "connection" {
-		Connection := proxy.Connection[0 : len(proxy.Connection)-1]
-		num, _ := strconv.Atoi(Connection)
-		return num * -1
+		return sortableDataByConnection(proxy)
+	}
+
+	if sorting == "anonimity" {
+		return sortableDataByAnonimity(proxy)
 	}
 
 	return proxy.Unique
+}
+
+func sortableDataBySpeed(proxy Proxy) int {
+	speed := proxy.Speed[0 : len(proxy.Speed)-1]
+	num, _ := strconv.Atoi(speed)
+
+	return num * -1
+}
+
+func sortableDataByConnection(proxy Proxy) int {
+	connection := proxy.Connection[0 : len(proxy.Connection)-1]
+	num, _ := strconv.Atoi(connection)
+
+	return num * -1
+}
+
+func sortableDataByAnonimity(proxy Proxy) int {
+	reference := map[string]int{
+		"High +KA": 1,
+		"High":     2,
+		"Medium":   3,
+		"Low":      4,
+		"None":     5,
+	}
+
+	return reference[proxy.Anonimity]
 }
