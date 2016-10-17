@@ -50,6 +50,10 @@ func sortableData(proxy Proxy, sorting string) int {
 		return sortableDataByAnonimity(proxy)
 	}
 
+	if sorting == "protocol" {
+		return sortableDataByProtocol(proxy)
+	}
+
 	return proxy.Unique
 }
 
@@ -77,4 +81,14 @@ func sortableDataByAnonimity(proxy Proxy) int {
 	}
 
 	return reference[proxy.Anonimity]
+}
+
+func sortableDataByProtocol(proxy Proxy) int {
+	reference := map[string]int{
+		"socks4/5": 1,
+		"HTTPS":    2,
+		"HTTP":     3,
+	}
+
+	return reference[proxy.Protocol]
 }
