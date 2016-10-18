@@ -6,16 +6,16 @@ import (
 )
 
 type Proxy struct {
-	Unique     int
-	Filter     int
-	LastUpdate string
-	Address    string
-	Port       string
-	Country    string
-	Speed      string
-	Connection string
-	Protocol   string
-	Anonimity  string
+	Unique     int    `json:"-"`
+	Filter     int    `json:"-"`
+	LastUpdate string `json:"lastupdate"`
+	Address    string `json:"address"`
+	Port       string `json:"port"`
+	Country    string `json:"country"`
+	Speed      string `json:"speed"`
+	Connection string `json:"connection"`
+	Protocol   string `json:"protocol"`
+	Anonimity  string `json:"anonimity"`
 }
 
 func (p *Proxy) ParseAddress(line string) {
