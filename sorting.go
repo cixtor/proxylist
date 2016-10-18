@@ -54,6 +54,10 @@ func sortableData(proxy Proxy, sorting string) int {
 		return sortableDataByProtocol(proxy)
 	}
 
+	if sorting == "port" {
+		return sortableDataByPort(proxy)
+	}
+
 	return proxy.Unique
 }
 
@@ -91,4 +95,10 @@ func sortableDataByProtocol(proxy Proxy) int {
 	}
 
 	return reference[proxy.Protocol]
+}
+
+func sortableDataByPort(proxy Proxy) int {
+	num, _ := strconv.Atoi(proxy.Port)
+
+	return num
 }
