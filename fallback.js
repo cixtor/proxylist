@@ -17,7 +17,7 @@ try {
             let $ = cheerio.load(buf);
 
             let content = $('td').eq(1).html();
-            let pattern = '\\.([0-9a-zA-Z_]{4})\{display:(inline|none)\}';
+            let pattern = '\\.([0-9a-zA-Z_\-]{4})\{display:(inline|none)\}';
             let cssclass = content.match(new RegExp(pattern, 'g'));
             let invisible = [];
             let styleend = 0;

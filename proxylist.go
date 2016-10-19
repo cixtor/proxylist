@@ -59,7 +59,7 @@ func (p *Proxy) InvisibleTags(line string) []string {
 	var styleEnd int = strings.Index(line, "</style>")
 	var section string = line[(styleStart + 7):styleEnd]
 
-	re := regexp.MustCompile(`\.([0-9a-zA-Z_]{4})\{display:(inline|none)\}`)
+	re := regexp.MustCompile(`\.([0-9a-zA-Z_\-]{4})\{display:(inline|none)\}`)
 	parts := re.FindAllStringSubmatch(section, -1)
 
 	for _, data := range parts {

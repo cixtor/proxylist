@@ -226,7 +226,7 @@ func TestAnalyzeProxy13(t *testing.T) {
 func TestAnalyzeProxy14(t *testing.T) {
 	ReportFailure(t, 14, Proxy{
 		LastUpdate: "31mins",
-		Address:    "113138156199.25",
+		Address:    "113.255.49.49",
 		Port:       "80",
 		Country:    "Hong Kong",
 		Speed:      "92%",
@@ -356,7 +356,7 @@ func TestAnalyzeProxy23(t *testing.T) {
 func TestAnalyzeProxy24(t *testing.T) {
 	ReportFailure(t, 24, Proxy{
 		LastUpdate: "1h",
-		Address:    "180206.142.128.",
+		Address:    "180.142.128.118",
 		Port:       "2226",
 		Country:    "China",
 		Speed:      "16%",
@@ -382,7 +382,7 @@ func TestAnalyzeProxy25(t *testing.T) {
 func TestAnalyzeProxy26(t *testing.T) {
 	ReportFailure(t, 26, Proxy{
 		LastUpdate: "1h 1min",
-		Address:    "101155.81107.68",
+		Address:    "101.81.68.124",
 		Port:       "81",
 		Country:    "China",
 		Speed:      "67%",
@@ -655,7 +655,7 @@ func TestAnalyzeProxy46(t *testing.T) {
 func TestAnalyzeProxy47(t *testing.T) {
 	ReportFailure(t, 47, Proxy{
 		LastUpdate: "1h 36mins",
-		Address:    "101448240.63171",
+		Address:    "14.63.226.198",
 		Port:       "80",
 		Country:    "Korea",
 		Speed:      "30%",
