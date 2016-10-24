@@ -10,7 +10,7 @@
 - [x] `-json` - Export data using JSON format to standard output,
 - [x] `-table` - Export data using ASCII format to standard output,
 - [x] `-sort=connection` - Sort data in descending order by the connection,
-- [x] `-sort=anonimity` - Sort data in ascending order by the anonimity,
+- [x] `-sort=anonymity` - Sort data in ascending order by the anonymity,
 - [x] `-sort=protocol` - Sort data in ascending order by the protocol,
 - [x] `-sort=speed` - Sort data in descending order by the speed,
 - [x] `-sort=port` - Sort data in ascending order by the port,

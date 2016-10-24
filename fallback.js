@@ -59,7 +59,7 @@ try {
                 Speed: $('.response_time .indicator').css('width'),
                 Connection: $('.connection_time .indicator').css('width'),
                 Protocol: $('td').eq(6).text().trim(),
-                Anonimity: $('td').eq(7).text().trim(),
+                Anonymity: $('td').eq(7).text().trim(),
             });
         });
     };

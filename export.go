@@ -8,7 +8,7 @@ import (
 )
 
 func printAsTable(entries ProxyList) {
-	fmt.Println("## | Alive      | Speed | Conn | Anonimity | Protocol + Address + Port     | Country")
+	fmt.Println("## | Alive      | Speed | Conn | Anonymity | Protocol + Address + Port     | Country")
 	fmt.Println("--------------------------------------------------------------------------------------")
 
 	for _, proxy := range entries {
@@ -17,7 +17,7 @@ func printAsTable(entries ProxyList) {
 			padright(proxy.LastUpdate, 10),
 			padleft(proxy.Speed, 5),
 			padleft(proxy.Connection, 4),
-			padright(proxy.Anonimity, 9),
+			padright(proxy.Anonymity, 9),
 			padright(fullhost(proxy), 29),
 			proxy.Country,
 		)
@@ -41,7 +41,7 @@ func printAsCSV(entries ProxyList) {
 		"Speed",
 		"Connection",
 		"Protocol",
-		"Anonimity",
+		"Anonymity",
 	})
 
 	for _, proxy := range entries {
@@ -53,7 +53,7 @@ func printAsCSV(entries ProxyList) {
 			proxy.Speed,
 			proxy.Connection,
 			proxy.Protocol,
-			proxy.Anonimity,
+			proxy.Anonymity,
 		}
 
 		writer.Write(entry)

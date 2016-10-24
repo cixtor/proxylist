@@ -63,7 +63,7 @@ func TestAnalyzeProxy1(t *testing.T) {
 		Speed:      "92%",
 		Connection: "95%",
 		Protocol:   "HTTP",
-		Anonimity:  "High +KA",
+		Anonymity:  "High +KA",
 	})
 }
 
@@ -76,7 +76,7 @@ func TestAnalyzeProxy2(t *testing.T) {
 		Speed:      "83%",
 		Connection: "94%",
 		Protocol:   "HTTP",
-		Anonimity:  "High +KA",
+		Anonymity:  "High +KA",
 	})
 }
 
@@ -89,7 +89,7 @@ func TestAnalyzeProxy3(t *testing.T) {
 		Speed:      "10%",
 		Connection: "100%",
 		Protocol:   "HTTP",
-		Anonimity:  "High +KA",
+		Anonymity:  "High +KA",
 	})
 }
 
@@ -102,7 +102,7 @@ func TestAnalyzeProxy4(t *testing.T) {
 		Speed:      "100%",
 		Connection: "100%",
 		Protocol:   "HTTP",
-		Anonimity:  "High +KA",
+		Anonymity:  "High +KA",
 	})
 }
 
@@ -115,7 +115,7 @@ func TestAnalyzeProxy5(t *testing.T) {
 		Speed:      "34%",
 		Connection: "91%",
 		Protocol:   "HTTPS",
-		Anonimity:  "High +KA",
+		Anonymity:  "High +KA",
 	})
 }
 
@@ -128,7 +128,7 @@ func TestAnalyzeProxy6(t *testing.T) {
 		Speed:      "45%",
 		Connection: "96%",
 		Protocol:   "HTTP",
-		Anonimity:  "Low",
+		Anonymity:  "Low",
 	})
 }
 
@@ -141,7 +141,7 @@ func TestAnalyzeProxy7(t *testing.T) {
 		Speed:      "11%",
 		Connection: "100%",
 		Protocol:   "HTTPS",
-		Anonimity:  "High +KA",
+		Anonymity:  "High +KA",
 	})
 }
 
@@ -154,7 +154,7 @@ func TestAnalyzeProxy8(t *testing.T) {
 		Speed:      "88%",
 		Connection: "92%",
 		Protocol:   "HTTP",
-		Anonimity:  "High +KA",
+		Anonymity:  "High +KA",
 	})
 }
 
@@ -167,7 +167,7 @@ func TestAnalyzeProxy9(t *testing.T) {
 		Speed:      "92%",
 		Connection: "95%",
 		Protocol:   "HTTP",
-		Anonimity:  "High +KA",
+		Anonymity:  "High +KA",
 	})
 }
 
@@ -180,7 +180,7 @@ func TestAnalyzeProxy10(t *testing.T) {
 		Speed:      "10%",
 		Connection: "40%",
 		Protocol:   "HTTPS",
-		Anonimity:  "High +KA",
+		Anonymity:  "High +KA",
 	})
 }
 
@@ -193,7 +193,7 @@ func TestAnalyzeProxy11(t *testing.T) {
 		Speed:      "91%",
 		Connection: "100%",
 		Protocol:   "HTTPS",
-		Anonimity:  "High +KA",
+		Anonymity:  "High +KA",
 	})
 }
 
@@ -206,7 +206,7 @@ func TestAnalyzeProxy12(t *testing.T) {
 		Speed:      "62%",
 		Connection: "93%",
 		Protocol:   "socks4/5",
-		Anonimity:  "High +KA",
+		Anonymity:  "High +KA",
 	})
 }
 
@@ -219,7 +219,7 @@ func TestAnalyzeProxy13(t *testing.T) {
 		Speed:      "92%",
 		Connection: "96%",
 		Protocol:   "socks4/5",
-		Anonimity:  "High +KA",
+		Anonymity:  "High +KA",
 	})
 }
 
@@ -232,7 +232,7 @@ func TestAnalyzeProxy14(t *testing.T) {
 		Speed:      "92%",
 		Connection: "95%",
 		Protocol:   "HTTP",
-		Anonimity:  "High +KA",
+		Anonymity:  "High +KA",
 	})
 }
 
@@ -245,7 +245,7 @@ func TestAnalyzeProxy15(t *testing.T) {
 		Speed:      "75%",
 		Connection: "92%",
 		Protocol:   "HTTP",
-		Anonimity:  "High +KA",
+		Anonymity:  "High +KA",
 	})
 }
 
@@ -258,7 +258,7 @@ func TestAnalyzeProxy16(t *testing.T) {
 		Speed:      "75%",
 		Connection: "32%",
 		Protocol:   "HTTP",
-		Anonimity:  "High +KA",
+		Anonymity:  "High +KA",
 	})
 }
 
@@ -271,7 +271,7 @@ func TestAnalyzeProxy17(t *testing.T) {
 		Speed:      "92%",
 		Connection: "68%",
 		Protocol:   "HTTPS",
-		Anonimity:  "High +KA",
+		Anonymity:  "High +KA",
 	})
 }
 
@@ -284,7 +284,7 @@ func TestAnalyzeProxy18(t *testing.T) {
 		Speed:      "20%",
 		Connection: "96%",
 		Protocol:   "HTTP",
-		Anonimity:  "High +KA",
+		Anonymity:  "High +KA",
 	})
 }
 
@@ -297,7 +297,7 @@ func TestAnalyzeProxy19(t *testing.T) {
 		Speed:      "90%",
 		Connection: "100%",
 		Protocol:   "HTTPS",
-		Anonimity:  "High +KA",
+		Anonymity:  "High +KA",
 	})
 }
 
@@ -310,7 +310,7 @@ func TestAnalyzeProxy20(t *testing.T) {
 		Speed:      "64%",
 		Connection: "45%",
 		Protocol:   "HTTP",
-		Anonimity:  "High +KA",
+		Anonymity:  "High +KA",
 	})
 }
 
@@ -323,7 +323,7 @@ func TestAnalyzeProxy21(t *testing.T) {
 		Speed:      "9%",
 		Connection: "94%",
 		Protocol:   "HTTP",
-		Anonimity:  "High +KA",
+		Anonymity:  "High +KA",
 	})
 }
 
@@ -336,7 +336,7 @@ func TestAnalyzeProxy22(t *testing.T) {
 		Speed:      "48%",
 		Connection: "100%",
 		Protocol:   "HTTPS",
-		Anonimity:  "High +KA",
+		Anonymity:  "High +KA",
 	})
 }
 
@@ -349,7 +349,7 @@ func TestAnalyzeProxy23(t *testing.T) {
 		Speed:      "68%",
 		Connection: "40%",
 		Protocol:   "HTTPS",
-		Anonimity:  "High +KA",
+		Anonymity:  "High +KA",
 	})
 }
 
@@ -362,7 +362,7 @@ func TestAnalyzeProxy24(t *testing.T) {
 		Speed:      "16%",
 		Connection: "36%",
 		Protocol:   "HTTP",
-		Anonimity:  "High +KA",
+		Anonymity:  "High +KA",
 	})
 }
 
@@ -375,7 +375,7 @@ func TestAnalyzeProxy25(t *testing.T) {
 		Speed:      "39%",
 		Connection: "93%",
 		Protocol:   "HTTPS",
-		Anonimity:  "High +KA",
+		Anonymity:  "High +KA",
 	})
 }
 
@@ -388,7 +388,7 @@ func TestAnalyzeProxy26(t *testing.T) {
 		Speed:      "67%",
 		Connection: "93%",
 		Protocol:   "HTTP",
-		Anonimity:  "High +KA",
+		Anonymity:  "High +KA",
 	})
 }
 
@@ -401,7 +401,7 @@ func TestAnalyzeProxy27(t *testing.T) {
 		Speed:      "7%",
 		Connection: "100%",
 		Protocol:   "HTTP",
-		Anonimity:  "High",
+		Anonymity:  "High",
 	})
 }
 
@@ -414,7 +414,7 @@ func TestAnalyzeProxy28(t *testing.T) {
 		Speed:      "94%",
 		Connection: "94%",
 		Protocol:   "socks4/5",
-		Anonimity:  "High +KA",
+		Anonymity:  "High +KA",
 	})
 }
 
@@ -427,7 +427,7 @@ func TestAnalyzeProxy29(t *testing.T) {
 		Speed:      "67%",
 		Connection: "96%",
 		Protocol:   "HTTP",
-		Anonimity:  "High +KA",
+		Anonymity:  "High +KA",
 	})
 }
 
@@ -440,7 +440,7 @@ func TestAnalyzeProxy30(t *testing.T) {
 		Speed:      "34%",
 		Connection: "91%",
 		Protocol:   "HTTP",
-		Anonimity:  "High +KA",
+		Anonymity:  "High +KA",
 	})
 }
 
@@ -453,7 +453,7 @@ func TestAnalyzeProxy31(t *testing.T) {
 		Speed:      "88%",
 		Connection: "93%",
 		Protocol:   "HTTP",
-		Anonimity:  "Low",
+		Anonymity:  "Low",
 	})
 }
 
@@ -466,7 +466,7 @@ func TestAnalyzeProxy32(t *testing.T) {
 		Speed:      "55%",
 		Connection: "92%",
 		Protocol:   "HTTP",
-		Anonimity:  "High +KA",
+		Anonymity:  "High +KA",
 	})
 }
 
@@ -479,7 +479,7 @@ func TestAnalyzeProxy33(t *testing.T) {
 		Speed:      "100%",
 		Connection: "100%",
 		Protocol:   "HTTP",
-		Anonimity:  "High +KA",
+		Anonymity:  "High +KA",
 	})
 }
 
@@ -492,7 +492,7 @@ func TestAnalyzeProxy34(t *testing.T) {
 		Speed:      "78%",
 		Connection: "96%",
 		Protocol:   "HTTP",
-		Anonimity:  "High +KA",
+		Anonymity:  "High +KA",
 	})
 }
 
@@ -505,7 +505,7 @@ func TestAnalyzeProxy35(t *testing.T) {
 		Speed:      "86%",
 		Connection: "95%",
 		Protocol:   "HTTP",
-		Anonimity:  "High +KA",
+		Anonymity:  "High +KA",
 	})
 }
 
@@ -518,7 +518,7 @@ func TestAnalyzeProxy36(t *testing.T) {
 		Speed:      "91%",
 		Connection: "95%",
 		Protocol:   "HTTP",
-		Anonimity:  "High +KA",
+		Anonymity:  "High +KA",
 	})
 }
 
@@ -531,7 +531,7 @@ func TestAnalyzeProxy37(t *testing.T) {
 		Speed:      "8%",
 		Connection: "80%",
 		Protocol:   "HTTP",
-		Anonimity:  "High +KA",
+		Anonymity:  "High +KA",
 	})
 }
 
@@ -544,7 +544,7 @@ func TestAnalyzeProxy38(t *testing.T) {
 		Speed:      "26%",
 		Connection: "89%",
 		Protocol:   "HTTP",
-		Anonimity:  "High +KA",
+		Anonymity:  "High +KA",
 	})
 }
 
@@ -557,7 +557,7 @@ func TestAnalyzeProxy39(t *testing.T) {
 		Speed:      "44%",
 		Connection: "100%",
 		Protocol:   "HTTPS",
-		Anonimity:  "High +KA",
+		Anonymity:  "High +KA",
 	})
 }
 
@@ -570,7 +570,7 @@ func TestAnalyzeProxy40(t *testing.T) {
 		Speed:      "35%",
 		Connection: "100%",
 		Protocol:   "HTTP",
-		Anonimity:  "High +KA",
+		Anonymity:  "High +KA",
 	})
 }
 
@@ -583,7 +583,7 @@ func TestAnalyzeProxy41(t *testing.T) {
 		Speed:      "75%",
 		Connection: "100%",
 		Protocol:   "HTTP",
-		Anonimity:  "High +KA",
+		Anonymity:  "High +KA",
 	})
 }
 
@@ -596,7 +596,7 @@ func TestAnalyzeProxy42(t *testing.T) {
 		Speed:      "80%",
 		Connection: "100%",
 		Protocol:   "HTTPS",
-		Anonimity:  "High +KA",
+		Anonymity:  "High +KA",
 	})
 }
 
@@ -609,7 +609,7 @@ func TestAnalyzeProxy43(t *testing.T) {
 		Speed:      "73%",
 		Connection: "30%",
 		Protocol:   "HTTP",
-		Anonimity:  "High +KA",
+		Anonymity:  "High +KA",
 	})
 }
 
@@ -622,7 +622,7 @@ func TestAnalyzeProxy44(t *testing.T) {
 		Speed:      "69%",
 		Connection: "100%",
 		Protocol:   "HTTP",
-		Anonimity:  "High +KA",
+		Anonymity:  "High +KA",
 	})
 }
 
@@ -635,7 +635,7 @@ func TestAnalyzeProxy45(t *testing.T) {
 		Speed:      "91%",
 		Connection: "95%",
 		Protocol:   "HTTP",
-		Anonimity:  "High +KA",
+		Anonymity:  "High +KA",
 	})
 }
 
@@ -648,7 +648,7 @@ func TestAnalyzeProxy46(t *testing.T) {
 		Speed:      "44%",
 		Connection: "36%",
 		Protocol:   "HTTP",
-		Anonimity:  "High +KA",
+		Anonymity:  "High +KA",
 	})
 }
 
@@ -661,7 +661,7 @@ func TestAnalyzeProxy47(t *testing.T) {
 		Speed:      "30%",
 		Connection: "94%",
 		Protocol:   "HTTP",
-		Anonimity:  "High +KA",
+		Anonymity:  "High +KA",
 	})
 }
 
@@ -674,7 +674,7 @@ func TestAnalyzeProxy48(t *testing.T) {
 		Speed:      "13%",
 		Connection: "100%",
 		Protocol:   "HTTP",
-		Anonimity:  "High +KA",
+		Anonymity:  "High +KA",
 	})
 }
 
@@ -687,7 +687,7 @@ func TestAnalyzeProxy49(t *testing.T) {
 		Speed:      "93%",
 		Connection: "100%",
 		Protocol:   "socks4/5",
-		Anonimity:  "High +KA",
+		Anonymity:  "High +KA",
 	})
 }
 
@@ -700,7 +700,7 @@ func TestAnalyzeProxy50(t *testing.T) {
 		Speed:      "33%",
 		Connection: "100%",
 		Protocol:   "HTTP",
-		Anonimity:  "High +KA",
+		Anonymity:  "High +KA",
 	})
 }
 
@@ -713,7 +713,7 @@ func TestAnalyzeProxy51(t *testing.T) {
 		Speed:      "53%",
 		Connection: "100%",
 		Protocol:   "HTTP",
-		Anonimity:  "High +KA",
+		Anonymity:  "High +KA",
 	})
 }
 
@@ -726,7 +726,7 @@ func TestAnalyzeProxy52(t *testing.T) {
 		Speed:      "91%",
 		Connection: "94%",
 		Protocol:   "HTTP",
-		Anonimity:  "High +KA",
+		Anonymity:  "High +KA",
 	})
 }
 
@@ -739,7 +739,7 @@ func TestAnalyzeProxy53(t *testing.T) {
 		Speed:      "89%",
 		Connection: "100%",
 		Protocol:   "HTTP",
-		Anonimity:  "High +KA",
+		Anonymity:  "High +KA",
 	})
 }
 
@@ -752,7 +752,7 @@ func TestAnalyzeProxy54(t *testing.T) {
 		Speed:      "100%",
 		Connection: "100%",
 		Protocol:   "socks4/5",
-		Anonimity:  "High +KA",
+		Anonymity:  "High +KA",
 	})
 }
 
@@ -765,7 +765,7 @@ func TestAnalyzeProxy55(t *testing.T) {
 		Speed:      "100%",
 		Connection: "100%",
 		Protocol:   "HTTP",
-		Anonimity:  "Low",
+		Anonymity:  "Low",
 	})
 }
 
@@ -778,6 +778,6 @@ func TestAnalyzeProxy56(t *testing.T) {
 		Speed:      "87%",
 		Connection: "92%",
 		Protocol:   "HTTP",
-		Anonimity:  "High +KA",
+		Anonymity:  "High +KA",
 	})
 }

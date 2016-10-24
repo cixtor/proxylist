@@ -15,7 +15,7 @@ type Proxy struct {
 	Speed      string `json:"speed"`
 	Connection string `json:"connection"`
 	Protocol   string `json:"protocol"`
-	Anonimity  string `json:"anonimity"`
+	Anonymity  string `json:"anonymity"`
 }
 
 func (p *Proxy) ParseAddress(line string) {
@@ -125,11 +125,11 @@ func (p *Proxy) ParseProtocol(line string) {
 	}
 }
 
-func (p *Proxy) ParseAnonimity(line string) {
+func (p *Proxy) ParseAnonymity(line string) {
 	re := regexp.MustCompile(`<td nowrap>([^>]+)<\/td>`)
 	parts := re.FindStringSubmatch(line)
 
 	if len(parts) == 2 {
-		p.Anonimity = strings.TrimSpace(parts[1])
+		p.Anonymity = strings.TrimSpace(parts[1])
 	}
 }

@@ -46,8 +46,8 @@ func sortableData(proxy Proxy, sorting string) int {
 		return sortableDataByConnection(proxy)
 	}
 
-	if sorting == "anonimity" {
-		return sortableDataByAnonimity(proxy)
+	if sorting == "anonymity" {
+		return sortableDataByAnonymity(proxy)
 	}
 
 	if sorting == "protocol" {
@@ -75,7 +75,7 @@ func sortableDataByConnection(proxy Proxy) int {
 	return num * -1
 }
 
-func sortableDataByAnonimity(proxy Proxy) int {
+func sortableDataByAnonymity(proxy Proxy) int {
 	reference := map[string]int{
 		"High +KA": 1,
 		"High":     2,
@@ -84,7 +84,7 @@ func sortableDataByAnonimity(proxy Proxy) int {
 		"None":     5,
 	}
 
-	return reference[proxy.Anonimity]
+	return reference[proxy.Anonymity]
 }
 
 func sortableDataByProtocol(proxy Proxy) int {
