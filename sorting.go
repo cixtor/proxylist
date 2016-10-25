@@ -5,6 +5,7 @@ import (
 	"strconv"
 )
 
+// ProxyList is used to sort []Proxy
 type ProxyList []Proxy
 
 func (p ProxyList) Len() int {
@@ -29,7 +30,7 @@ func sortLines(lines []string, sorting string) ProxyList {
 		proxy.Unique = count + 1
 		proxy.Filter = sortableData(proxy, sorting)
 		entries = append(entries, proxy)
-		count += 1
+		count++
 	}
 
 	sort.Sort(ProxyList(entries))

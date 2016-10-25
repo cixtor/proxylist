@@ -11,8 +11,10 @@ import (
 
 func analyze(text string) Proxy {
 	var proxy Proxy
+	var lines []string
+
 	text = strings.Replace(text, "</td><", "</td>\n<", -1)
-	var lines []string = strings.Split(text, "\n")
+	lines = strings.Split(text, "\n")
 
 	if len(lines) == 8 {
 		proxy = cellData(lines)
@@ -73,7 +75,7 @@ func tableCells(stream io.Reader) []string {
 
 	var line string
 	var cells []string
-	var collect bool = false
+	var collect bool
 	var row string
 
 	for scanner.Scan() {
@@ -110,7 +112,7 @@ func fullhost(proxy Proxy) string {
 }
 
 func padleft(text string, length int) string {
-	var total int = len(text)
+	var total = len(text)
 
 	if total < length {
 		text = strings.Repeat("\x20", length-total) + text
@@ -120,7 +122,7 @@ func padleft(text string, length int) string {
 }
 
 func padright(text string, length int) string {
-	var total int = len(text)
+	var total = len(text)
 
 	if total < length {
 		text += strings.Repeat("\x20", length-total)

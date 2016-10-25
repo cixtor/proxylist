@@ -5,6 +5,7 @@ import (
 	"strings"
 )
 
+// Proxy defines the JSON object for each proxy.
 type Proxy struct {
 	Unique     int    `json:"-"`
 	Filter     int    `json:"-"`
@@ -18,9 +19,14 @@ type Proxy struct {
 	Anonymity  string `json:"anonymity"`
 }
 
+// ParseAddress is used to extract the IPv4 address.
 func (p *Proxy) ParseAddress(line string) {
-	var end int = strings.Index(line, "</style>")
-	var content string = line[(end + 8):len(line)]
+	var end int
+	var content string
+	var invisible []string
+
+	end = strings.Index(line, "</style>")
+	content = line[(end + 8):len(line)]
 
 	// Remove unnecessary empty HTML tags.
 	content = strings.Replace(content, "<span></span>", "", -1)
@@ -30,7 +36,7 @@ func (p *Proxy) ParseAddress(line string) {
 	content = re.ReplaceAllString(content, "")
 
 	// Remove implicit invisible HTML tags with CSS classes.
-	var invisible []string = p.InvisibleTags(line)
+	invisible = p.InvisibleTags(line)
 	for _, cssClass := range invisible {
 		re = regexp.MustCompile(`<(span|div) class="` + cssClass + `">[^<]+<\/(span|div)>`)
 		content = re.ReplaceAllString(content, "")
@@ -53,11 +59,16 @@ func (p *Proxy) ParseAddress(line string) {
 	}
 }
 
+// InvisibleTags extracts a list of ghost CSS class names.
 func (p *Proxy) InvisibleTags(line string) []string {
 	var invisible []string
-	var styleStart int = strings.Index(line, "<style>")
-	var styleEnd int = strings.Index(line, "</style>")
-	var section string = line[(styleStart + 7):styleEnd]
+	var section string
+	var styleStart int
+	var styleEnd int
+
+	styleStart = strings.Index(line, "<style>")
+	styleEnd = strings.Index(line, "</style>")
+	section = line[(styleStart + 7):styleEnd]
 
 	re := regexp.MustCompile(`\.([0-9a-zA-Z_\-]{4})\{display:(inline|none)\}`)
 	parts := re.FindAllStringSubmatch(section, -1)
@@ -71,6 +82,7 @@ func (p *Proxy) InvisibleTags(line string) []string {
 	return invisible
 }
 
+// ParseLastUpdate is used to extract the last update time.
 func (p *Proxy) ParseLastUpdate(line string) {
 	re := regexp.MustCompile(`<span class="updatets[^>]+>([^<]+)<\/span>`)
 	parts := re.FindStringSubmatch(line)
@@ -80,6 +92,7 @@ func (p *Proxy) ParseLastUpdate(line string) {
 	}
 }
 
+// ParsePort is used to extract the port number.
 func (p *Proxy) ParsePort(line string) {
 	re := regexp.MustCompile(`<td>(\S+)\s+<\/td>`)
 	parts := re.FindStringSubmatch(line)
@@ -89,6 +102,7 @@ func (p *Proxy) ParsePort(line string) {
 	}
 }
 
+// ParseCountry is used to extract the country name.
 func (p *Proxy) ParseCountry(line string) {
 	re := regexp.MustCompile(`\/>([^<]+)<\/span><\/td>`)
 	parts := re.FindStringSubmatch(line)
@@ -98,6 +112,7 @@ func (p *Proxy) ParseCountry(line string) {
 	}
 }
 
+// ParseSpeed is used to extract the speed in percentage.
 func (p *Proxy) ParseSpeed(line string) {
 	re := regexp.MustCompile(`style="width: ([0-9]+%);`)
 	parts := re.FindStringSubmatch(line)
@@ -107,6 +122,7 @@ func (p *Proxy) ParseSpeed(line string) {
 	}
 }
 
+// ParseConnection is used to extract the connection speed.
 func (p *Proxy) ParseConnection(line string) {
 	re := regexp.MustCompile(`style="width: ([0-9]+%);`)
 	parts := re.FindStringSubmatch(line)
@@ -116,6 +132,7 @@ func (p *Proxy) ParseConnection(line string) {
 	}
 }
 
+// ParseProtocol is used to extract the HTTP transport protocol.
 func (p *Proxy) ParseProtocol(line string) {
 	re := regexp.MustCompile(`<td>(\S+)\s+<\/td>`)
 	parts := re.FindStringSubmatch(line)
@@ -125,6 +142,7 @@ func (p *Proxy) ParseProtocol(line string) {
 	}
 }
 
+// ParseAnonymity is used to extract the anonymity percentage.
 func (p *Proxy) ParseAnonymity(line string) {
 	re := regexp.MustCompile(`<td nowrap>([^>]+)<\/td>`)
 	parts := re.FindStringSubmatch(line)
