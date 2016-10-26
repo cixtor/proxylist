@@ -64,6 +64,11 @@ try {
         });
     };
 
+    if (process.argv.length < 3) {
+        console.log('Usage: node fallback.js tests/test-*.txt');
+        return;
+    }
+
     for (var key in process.argv) {
         if (process.argv.hasOwnProperty(key)) {
             fpath = process.argv[key];
