@@ -26,7 +26,7 @@ func (p *Proxy) ParseAddress(line string) {
 	var invisible []string
 
 	end = strings.Index(line, "</style>")
-	content = line[(end + 8):len(line)]
+	content = line[end+8:]
 
 	// Remove unnecessary empty HTML tags.
 	content = strings.Replace(content, "<span></span>", "", -1)
