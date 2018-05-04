@@ -5,12 +5,7 @@ import (
 	"fmt"
 )
 
-const service = "http://proxylist.hidemyass.com/"
-
-var exportTable = flag.Bool("table", true, "Print proxy servers in an ASCII table")
-var exportJSON = flag.Bool("json", false, "Print JSON encoded proxy server list")
-var exportCSV = flag.Bool("csv", false, "Print CSV encoded proxy server list")
-var sorting = flag.String("sort", "unique", "Sort the output by certain criteria")
+const service = "https://gimmeproxy.com/api/getProxy"
 
 func main() {
 	flag.Usage = func() {
@@ -28,29 +23,9 @@ func main() {
 			"simplify and control its complexity. Proxies were invented to add structure and\n" +
 			"encapsulation to distributed systems. Today, most proxies are web proxies,\n" +
 			"facilitating access to content on the World Wide Web and providing anonymity.\n")
-
 		fmt.Println("Usage:")
 		flag.PrintDefaults()
 	}
 
 	flag.Parse()
-
-	stream := htmlDocument(service)
-	lines := tableCells(stream)
-	entries := sortLines(lines, *sorting)
-
-	if *exportCSV {
-		printAsCSV(entries)
-		return
-	}
-
-	if *exportJSON {
-		printAsJSON(entries)
-		return
-	}
-
-	if *exportTable {
-		printAsTable(entries)
-		return
-	}
 }
