@@ -1,11 +1,16 @@
 package main
 
 import (
+	"encoding/json"
 	"flag"
 	"fmt"
+	"log"
+	"os"
 )
 
 const service = "https://gimmeproxy.com/api/getProxy"
+
+var howmany int
 
 func main() {
 	flag.Usage = func() {
@@ -27,5 +32,15 @@ func main() {
 		flag.PrintDefaults()
 	}
 
+	flag.IntVar(&howmany, "n", 10, "How many proxies to list")
+
 	flag.Parse()
+
+	p := NewProxy(service)
+
+	list := p.List(howmany)
+
+	if err := json.NewEncoder(os.Stdout).Encode(list); err != nil {
+		log.Println("json.decode", err)
+	}
 }
