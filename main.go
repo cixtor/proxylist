@@ -10,6 +10,7 @@ import (
 
 const service = "https://gimmeproxy.com/api/getProxy"
 
+var export bool
 var howmany int
 
 func main() {
@@ -32,6 +33,7 @@ func main() {
 		flag.PrintDefaults()
 	}
 
+	flag.BoolVar(&export, "e", false, "Export all data as JSON")
 	flag.IntVar(&howmany, "n", 10, "How many proxies to list")
 
 	flag.Parse()
@@ -40,7 +42,10 @@ func main() {
 
 	list := p.List(howmany)
 
-	if err := json.NewEncoder(os.Stdout).Encode(list); err != nil {
-		log.Println("json.decode", err)
+	if export {
+		if err := json.NewEncoder(os.Stdout).Encode(list); err != nil {
+			log.Println("json.decode", err)
+		}
+		return
 	}
 }
