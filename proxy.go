@@ -187,4 +187,13 @@ func (p *Proxy) Print(w io.Writer) {
 		table.Append(v)
 	}
 	table.Render()
+
+	if len(p.entries) > 0 {
+		fmt.Fprintln(w, "G - supports GET requests")
+		fmt.Fprintln(w, "P - supports POST requests")
+		fmt.Fprintln(w, "C - supports cookies")
+		fmt.Fprintln(w, "R - supports 'referer' header")
+		fmt.Fprintln(w, "U - supports 'user-agent' header")
+		fmt.Fprintln(w, "A - 1:anonymous, 0:notanonymous")
+	}
 }
