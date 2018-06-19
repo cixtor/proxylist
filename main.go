@@ -1,10 +1,8 @@
 package main
 
 import (
-	"encoding/json"
 	"flag"
 	"fmt"
-	"log"
 	"os"
 )
 
@@ -40,12 +38,15 @@ func main() {
 
 	p := NewProxy(service)
 
-	list := p.List(howmany)
-
-	if export {
-		if err := json.NewEncoder(os.Stdout).Encode(list); err != nil {
-			log.Println("json.decode", err)
-		}
+	if err := p.Execute(howmany); err != nil {
+		fmt.Print(err)
 		return
 	}
+
+	if export {
+		p.Export(os.Stdout)
+		return
+	}
+
+	p.Print(os.Stdout)
 }

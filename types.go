@@ -9,8 +9,10 @@ type Settings struct {
 	Curl           string          `json:"curl"`
 	Country        string          `json:"country"`
 	IPPort         string          `json:"ipPort"`
+	StatusMessage  string          `json:"status_message"`
 	AnonymityLevel int             `json:"anonymityLevel"`
-	TsChecked      int             `json:"tsChecked"`
+	StatusCode     int             `json:"status_code"`
+	TsChecked      int64           `json:"tsChecked"`
 	Speed          float64         `json:"speed"`
 	Get            bool            `json:"get"`
 	Post           bool            `json:"post"`
