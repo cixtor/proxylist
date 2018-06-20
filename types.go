@@ -7,8 +7,9 @@ type Settings struct {
 	Type           string          `json:"type"`
 	Port           string          `json:"port"`
 	Curl           string          `json:"curl"`
-	Country        string          `json:"country"`
 	IPPort         string          `json:"ipPort"`
+	Filter         string          `json:"_filter"`
+	Country        string          `json:"country"`
 	StatusMessage  string          `json:"status_message"`
 	AnonymityLevel int             `json:"anonymityLevel"`
 	StatusCode     int             `json:"status_code"`

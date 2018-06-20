@@ -10,6 +10,7 @@ const service = "https://gimmeproxy.com/api/getProxy"
 
 var export bool
 var howmany int
+var sorting string
 
 func main() {
 	flag.Usage = func() {
@@ -33,6 +34,7 @@ func main() {
 
 	flag.BoolVar(&export, "e", false, "Export all data as JSON")
 	flag.IntVar(&howmany, "n", 10, "How many proxies to list")
+	flag.StringVar(&sorting, "s", "speed", "Sort in descending mode")
 
 	flag.Parse()
 
@@ -42,6 +44,8 @@ func main() {
 		fmt.Print(err)
 		return
 	}
+
+	p.Sort(sorting)
 
 	if export {
 		p.Export(os.Stdout)

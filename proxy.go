@@ -7,6 +7,7 @@ import (
 	"io"
 	"log"
 	"net/http"
+	"sort"
 	"time"
 
 	"github.com/olekukonko/tablewriter"
@@ -196,4 +197,24 @@ func (p *Proxy) Print(w io.Writer) {
 		fmt.Fprintln(w, "U - supports 'user-agent' header")
 		fmt.Fprintln(w, "A - 1:anonymous, 0:notanonymous")
 	}
+}
+
+// Sort re-orders the list of proxies by a column.
+func (p *Proxy) Sort(column string) {
+	for idx, item := range p.entries {
+		switch column {
+		case "port":
+			p.entries[idx].Filter = item.Port
+		case "speed":
+			p.entries[idx].Filter = fmt.Sprintf("%.2f", item.Speed*100)
+		case "country":
+			p.entries[idx].Filter = item.Country
+		case "protocol":
+			p.entries[idx].Filter = item.Protocol
+		case "uptime":
+			p.entries[idx].Filter = fmt.Sprintf("%d", item.TsChecked)
+		}
+	}
+
+	sort.Sort(byFilter(p.entries))
 }
