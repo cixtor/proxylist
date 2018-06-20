@@ -15,6 +15,7 @@ import (
 
 // Proxy represents the core of the library.
 type Proxy struct {
+	success int
 	service string
 	failure []error
 	entries []Settings
@@ -46,6 +47,9 @@ func (p *Proxy) Execute(n int) error {
 		item = <-queue
 		p.failure = append(p.failure, fail)
 		p.entries = append(p.entries, item)
+		if item.Curl != "" {
+			p.success++
+		}
 	}
 
 	var msg string
@@ -123,6 +127,10 @@ func (p *Proxy) Print(w io.Writer) {
 	data := [][]string{}
 
 	for _, item := range p.entries {
+		if item.Curl == "" {
+			continue
+		}
+
 		entry = []string{}
 
 		t := time.Unix(item.TsChecked, 0)
@@ -189,7 +197,7 @@ func (p *Proxy) Print(w io.Writer) {
 	}
 	table.Render()
 
-	if len(p.entries) > 0 {
+	if len(data) > 0 {
 		fmt.Fprintln(w, "G - supports GET requests")
 		fmt.Fprintln(w, "P - supports POST requests")
 		fmt.Fprintln(w, "C - supports cookies")

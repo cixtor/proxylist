@@ -42,6 +42,10 @@ func main() {
 
 	if err := p.Execute(howmany); err != nil {
 		fmt.Print(err)
+		/* return */
+	}
+
+	if p.success == 0 {
 		return
 	}
 
